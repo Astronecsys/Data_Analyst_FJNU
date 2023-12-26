@@ -1,7 +1,7 @@
 import baostock as bs
 import pandas as pd
 
-code_df = pd.read_csv('../Data/stock_industry.csv', encoding='gbk')
+code_df = pd.read_csv('Data/stock_industry.csv', encoding='gbk')
 industry_df = code_df.loc[code_df['industry'] == '钢铁']    # 筛选出钢铁行业
 industry_code_df = industry_df['code']  # 获取钢铁行业各只股票的code
 code_list = industry_code_df.to_list()
@@ -33,7 +33,7 @@ for ele_code in code_list:
 result = pd.DataFrame(data_list, columns=rs.fields)     # type: ignore
 
 #### 结果集输出到csv文件 ####
-result.to_csv("../Data/history_A_stock_k_data.csv", index=False)
+result.to_csv("Data/history_A_stock_k_data.csv", index=False)
 
 #### 登出系统 ####
 bs.logout()
