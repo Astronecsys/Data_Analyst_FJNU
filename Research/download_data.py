@@ -1,6 +1,9 @@
 import baostock as bs
 import pandas as pd
 
+START_DATE='2023-09-01'
+END_DATE='2023-09-28'
+
 code_df = pd.read_csv('../Data/stock_industry.csv', encoding='gbk')
 industry_df = code_df.loc[code_df['industry'] == '钢铁']    # 筛选出钢铁行业
 industry_code_df = industry_df['code']  # 获取钢铁行业各只股票的code
@@ -21,7 +24,7 @@ result = pd.DataFrame()
 for ele_code in code_list:
     rs = bs.query_history_k_data_plus(ele_code,
                                       "date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST",
-                                      start_date='2023-09-01', end_date='2023-09-29',
+                                      start_date=START_DATE, end_date=END_DATE,
                                       frequency="d", adjustflag="3")
     print('query_history_k_data_plus respond error_code:'+rs.error_code)
     print('query_history_k_data_plus respond  error_msg:'+rs.error_msg)
