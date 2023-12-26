@@ -73,7 +73,7 @@ if __name__ == '__main__':
     codes = search_code()
 
     # 查询历史A股K线数据
-    query_api_data(codes, api_func=bs.query_history_k_data_plus, args={"fields": "date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST", "start_date": START_DATE, "end_date": END_DATE, "frequency": "d", "adjustflag": "3"},  path=PATH_K_DATA)
+    query_api_data(codes, api_func=bs.query_history_k_data_plus, args={"fields": "date,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,isST,peTTM,pbMRQ", "start_date": START_DATE, "end_date": END_DATE, "frequency": "d", "adjustflag": "3"},  path=PATH_K_DATA)
     # 查询盈利能力数据
     query_api_data(codes, api_func=bs.query_profit_data, args={}, path=PATH_PROFIT_DATA)
     # 查询营运能力数据...
